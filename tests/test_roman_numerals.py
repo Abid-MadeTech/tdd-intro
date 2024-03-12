@@ -5,6 +5,7 @@ roman_numerals = {
         4: 'IV', 
         5: 'V',
         6: 'VI',
+        10: ''
         12: 'XII'
     }
 
@@ -29,6 +30,9 @@ def test_5_equals_V():
 
 def test_6_equals_VI():
     assert convert_to_roman(6) == "VI"
+
+def test_10_equals_X():
+    assert convert_to_roman(10) == "X"
 
 def test_12_equals_XII():
     assert convert_to_roman(12) == "XII"
