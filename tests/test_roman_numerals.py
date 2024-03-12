@@ -22,6 +22,7 @@ roman_numerals = {
         10: 'X',
         12: 'XII',
         40: 'XL',
+        49: 'XLIX',
         50: 'L',
         100: 'C',
         500: 'D',
@@ -66,6 +67,9 @@ def test_12_equals_XII():
 
 def test_40_equals_XL():
     assert convert_to_roman(40) == "XL"
+
+def test_49_equals_XLIX():
+    assert convert_to_roman(49) == "XLIX"
 
 def test_50_equals_L():
     assert convert_to_roman(50) == "L"
