@@ -16,18 +16,26 @@ roman_numerals = {
         4: 'IV', 
         5: 'V',
         6: 'VI',
+        7: 'VII',
+        8: 'VIII',
+        9: 'IX',
         10: 'X',
+        12: 'XII',
         50: 'L',
         100: 'C',
         500: 'D',
         1000: 'M',
-        12: 'XII'
+       
     }
 
 def convert_to_roman(number):
     return roman_numerals[number]
 
 # 1 = I
+def test_convert_one_to_ten_to_roman_numeral():
+    for i in range(1, 11):
+        assert convert_to_roman(i) == roman_numerals[i]
+
 def test_one_equals_I():
     assert convert_to_roman(1) == "I"
 
@@ -46,8 +54,14 @@ def test_5_equals_V():
 def test_6_equals_VI():
     assert convert_to_roman(6) == "VI"
 
+def test_9_equals_IX():
+    assert convert_to_roman(9) == "IX"
+
 def test_10_equals_X():
     assert convert_to_roman(10) == "X"
+
+def test_12_equals_XII():
+    assert convert_to_roman(12) == "XII"
 
 def test_50_equals_L():
     assert convert_to_roman(50) == "L"
@@ -60,9 +74,6 @@ def test_500_equals_D():
 
 def test_1000_equals_M():
     assert convert_to_roman(1000) == "M"
-    
-def test_12_equals_XII():
-    assert convert_to_roman(12) == "XII"
 
 
 
