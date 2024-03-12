@@ -11,13 +11,12 @@ M             1000
 
 roman_numerals = {
         1: 'I', 
-        3: 'III', 
-        4: 'IV', 
-        5: 'V',
-        6: 'VI',
+        # 4: 'IV', 
+        # 5: 'V',
+        # 6: 'VI',
         7: 'VII',
         8: 'VIII',
-        9: 'IX',
+        # 9: 'IX',
         10: 'X',
         12: 'XII',
         40: 'XL',
@@ -26,11 +25,17 @@ roman_numerals = {
         100: 'C',
         500: 'D',
         1000: 'M',
-       
     }
 
-
-    
+real_roman_numerals = {
+        1: 'I', 
+        5: 'V',
+        10: 'X',
+        50: 'L',
+        100: 'C',
+        500: 'D',
+        1000: 'M',
+    }
 
 def convert_to_roman(number):
     result = ''
@@ -38,7 +43,22 @@ def convert_to_roman(number):
         for i in range(number):
             result += 'I'
         return result
-    else: return roman_numerals[number]
+    elif number in [4, 5, 6, 9]:
+        closest_threshold = 0
+        # todo this difference value should not be a hardcoded number like 10000
+        diff = 10000
+        for real_number, roman in real_roman_numerals.items():
+            if abs(real_number - number) < diff:
+                diff = abs(real_number - number)
+                closest_threshold = real_number
+        result = real_roman_numerals[closest_threshold]
+        if number < closest_threshold:
+            result = "I" + result
+        elif number > closest_threshold:
+            result += "I"
+        return result
+    else: 
+        return roman_numerals[number]
 
 # 1 = I
 # def test_convert_one_to_ten_to_roman_numeral():
