@@ -1,7 +1,6 @@
 def convert_to_roman(number):
-    
+    roman_numeral = ""
     if number in [1, 2, 3]:
-        roman_numeral = ""
         for i in range(number):
             roman_numeral += "I"
         return roman_numeral
@@ -27,8 +26,13 @@ def test_4_equals_IV():
 def test_5_equals_V():
     assert convert_to_roman(5) == "V"
 
+def test_6_equals_VI():
+    assert convert_to_roman(6) == "VI"
+
 def test_12_equals_XII():
     assert convert_to_roman(12) == "XII"
+
+
 
 
 
