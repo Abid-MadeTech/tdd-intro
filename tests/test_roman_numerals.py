@@ -5,7 +5,7 @@ roman_numerals = {
         4: 'IV', 
         5: 'V',
         6: 'VI',
-        10: ''
+        10: 'X',
         12: 'XII'
     }
 
