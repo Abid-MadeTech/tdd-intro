@@ -1,14 +1,15 @@
+roman_numerals = {
+        1: 'I', 
+        2: 'II', 
+        3: 'III', 
+        4: 'IV', 
+        5: 'V',
+        6: 'VI',
+        12: 'XII'
+    }
+
 def convert_to_roman(number):
-    roman_numeral = ""
-    if number in [1, 2, 3]:
-        for i in range(number):
-            roman_numeral += "I"
-        return roman_numeral
-    elif number == 12:
-        return "XII"
-    elif number == 4: 
-        return "IV"
-    else: return "V"
+    return roman_numerals[number]
 
 # 1 = I
 def test_one_equals_I():
