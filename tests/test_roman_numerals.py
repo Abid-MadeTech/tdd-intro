@@ -1,3 +1,14 @@
+"""
+Symbol       Value
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000
+"""
+
 roman_numerals = {
         1: 'I', 
         2: 'II', 
@@ -6,6 +17,10 @@ roman_numerals = {
         5: 'V',
         6: 'VI',
         10: 'X',
+        50: 'L',
+        100: 'C',
+        500: 'D',
+        1000: 'M',
         12: 'XII'
     }
 
@@ -34,6 +49,18 @@ def test_6_equals_VI():
 def test_10_equals_X():
     assert convert_to_roman(10) == "X"
 
+def test_50_equals_L():
+    assert convert_to_roman(50) == "L"
+
+def test_100_equals_C():
+    assert convert_to_roman(100) == "C"
+
+def test_500_equals_D():
+    assert convert_to_roman(500) == "D"
+
+def test_1000_equals_M():
+    assert convert_to_roman(1000) == "M"
+    
 def test_12_equals_XII():
     assert convert_to_roman(12) == "XII"
 
