@@ -10,15 +10,15 @@ M             1000
 """
 
 roman_numerals = {
-        1: 'I', 
+        # 1: 'I', 
         # 4: 'IV', 
         # 5: 'V',
         # 6: 'VI',
-        7: 'VII',
-        8: 'VIII',
+        # 7: 'VII',
+        # 8: 'VIII',
         # 9: 'IX',
-        10: 'X',
-        12: 'XII',
+        # 10: 'X',
+        # 12: 'XII',
         40: 'XL',
         # 49: 'XLIX',
         50: 'L',
@@ -39,23 +39,22 @@ real_roman_numerals = {
 
 def convert_to_roman(number):
     result = ''
-    if number < 4:
-        for i in range(number):
-            result += 'I'
-        return result
-    elif number in [4, 5, 6, 9]:
+    if number < 40:
         closest_threshold = 0
         # todo this difference value should not be a hardcoded number like 10000
         diff = 10000
         for real_number, roman in real_roman_numerals.items():
             if abs(real_number - number) < diff:
-                diff = abs(real_number - number)
-                closest_threshold = real_number
+                if number == (real_number - 1) or number >= real_number:
+                    diff = abs(real_number - number)
+                    closest_threshold = real_number
+                continue
         result = real_roman_numerals[closest_threshold]
         if number < closest_threshold:
             result = "I" + result
         elif number > closest_threshold:
-            result += "I"
+            for i in range(abs(number - closest_threshold)):
+                result += "I"
         return result
     else: 
         return roman_numerals[number]
@@ -83,14 +82,29 @@ def test_5_equals_V():
 def test_6_equals_VI():
     assert convert_to_roman(6) == "VI"
 
+def test_7_equals_VII():
+    assert convert_to_roman(7) == "VII"
+
+def test_8_equals_VIII():
+    assert convert_to_roman(8) == "VIII"
+
 def test_9_equals_IX():
     assert convert_to_roman(9) == "IX"
 
 def test_10_equals_X():
     assert convert_to_roman(10) == "X"
 
+def test_11_equals_XI():
+    assert convert_to_roman(11) == "XI"
+
 def test_12_equals_XII():
     assert convert_to_roman(12) == "XII"
+
+def test_13_equals_XIII():
+    assert convert_to_roman(13) == "XIII"
+
+def test_14_equals_XIV():
+    assert convert_to_roman(14) == "XIV"
 
 def test_40_equals_XL():
     assert convert_to_roman(40) == "XL"
